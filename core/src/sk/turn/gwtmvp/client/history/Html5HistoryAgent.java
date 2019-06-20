@@ -126,9 +126,9 @@ public class Html5HistoryAgent extends HistoryAgent {
 
   private native JavaScriptObject addPopStateEventListener() /*-{
     var that = this;
-    var handler = function(e) {
+    var handler = $entry(function(e) {
       that.@Html5HistoryAgent::onPopState()();
-    };
+    });
     $wnd.addEventListener('popstate', handler);
     return handler;
   }-*/;
@@ -147,9 +147,9 @@ public class Html5HistoryAgent extends HistoryAgent {
 
   protected native JavaScriptObject addGlobalClickEventListener() /*-{
     var that = this;
-    var handler = function(e) {
+    var handler = $entry(function(e) {
       that.@Html5HistoryAgent::onBodyClick(Lcom/google/gwt/dom/client/NativeEvent;)(e);
-    };
+    });
     $doc.body.addEventListener("click", handler);
     return handler;
   }-*/;
